@@ -1,10 +1,16 @@
-package hashingAndDocumentation;
+//package hashingAndDocumentation;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Objects;
 
+//
+// Heidy Acosta Emeterio
+// 04/15/2025
+/* This class represents a song record with various attributes
+// It includes methods for parsing a CSV string into a song record and for accessing its properties*/
 public class SongRecord {
     // Instance variables
+    // These variables store the properties of a song
     private double valence;
     private int year;
     private double acousticness;
@@ -26,6 +32,7 @@ public class SongRecord {
     private double tempo;
 
     // Default constructor
+    // Initializes the instance variables with default values
     public SongRecord() {
         this.valence = 0.0;
         this.year = 0;
@@ -81,6 +88,7 @@ public class SongRecord {
     }
 
     // Getters and setters for each field
+    // These methods allow access and modification of the private fields
     public double getValence() { return valence; }
     public void setValence(double valence) { this.valence = valence; }
 
@@ -139,8 +147,9 @@ public class SongRecord {
     public void setTempo(double tempo) { this.tempo = tempo; }
 
     // toString method
+    // This method returns a string representation of the object
     @Override
-    public String toString() {
+    public String toString() { 
         return "SongRecord{" +
                 "valence=" + valence +
                 ", year=" + year +
@@ -168,7 +177,7 @@ public class SongRecord {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) return false; // Check if the object is of the same class
         SongRecord that = (SongRecord) o;
         return Double.compare(that.valence, valence) == 0 &&
                 year == that.year &&
@@ -190,9 +199,10 @@ public class SongRecord {
                 Double.compare(that.speechiness, speechiness) == 0 &&
                 Double.compare(that.tempo, tempo) == 0;
     }
-
-    @Override
+    // hashCode method
+    @Override 
     public int hashCode() {
+        // Use Objects.hash to generate a hash code based on the fields
         return Objects.hash(valence, year, acousticness, artists, danceability, durationMs, energy, explicit, id,
                 instrumentalness, key, liveness, loudness, mode, name, popularity, releaseDate, speechiness, tempo);
     }
